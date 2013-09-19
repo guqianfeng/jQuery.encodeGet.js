@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style>
+*{font-size:14px;font-family:Verdana, Geneva, sans-serif;}
+a{color:#2D7DF7;}
+</style>
+<title>encode get params samples</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="include/javascript/jQuery.md5.js"></script>
+<script type="text/javascript" src="include/javascript/jquery.base64.js"></script>
+<script type="text/javascript" src="include/javascript/authcode.js"></script>
+<script type="text/javascript" src="include/javascript/jQuery.encodeGet.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("input[rel=trans]").click(function(e){
+		var str = $("#str").val();
+		$("textarea[id=md5]").text($.md5(str));
+		$("textarea[id=base64]").text($.base64({data:str,type:0,unicode:true}));
+		var _authcode = encodeURIComponent($.encodeGet( {data:str} ));
+		$("#mycode").text(_authcode);
+		$("a[rel=decode]").attr("href", "http://www.ppd01.com/encode.php?get="+_authcode);
+		$("a[rel=decode]").text("http://www.ppd01.com/encode.php?get="+_authcode);
+	});
+});
+</script>
+</head>
+
+<body>
+Params of get:
+<input type="text" id="str" name="str" value="id=120&userid=jackygu"/><input type="button" rel="trans" value="转换" /><br />
+md5:<br /><textarea id="md5" cols="40" rows="2"></textarea><br />
+base64:<br /><textarea id="base64" cols="40" rows="4"></textarea><br />
+encoded GET:<br /><textarea id="mycode" cols="40" rows="4"></textarea><br />
+<a href="" target="_blank" rel="decode"></a>
+</body>
+</html>
