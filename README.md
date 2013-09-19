@@ -19,7 +19,7 @@ var _authcode = encodeURIComponent($.encodeGet( {data:params, key:encode_key} ))
 var url = url + "?" + params_name + "=" + _authcode; // this is new encoded url
 </script>
 
-3- From the server side, at the begin of php, for example: encode.php:
+3- From the server side, at the begin of php, for example: decode.php:
 require_once( "include/ppd.encodeget.php" );
 
 Then you can get params id as: 
