@@ -1,7 +1,9 @@
 jQuery.encodeGet.js
+
 ===================
 
 How to Use:
+
 1- Install:
 Copy jQuery.encodeGet.js to the dir of your server, for example: include/javascript/
 Copy ppd.encodeget.php to the dir of your server php includes, for example: include/php/
